@@ -2,14 +2,24 @@ package br.com.foursalescontrol.core.domain;
 
 import java.time.LocalDate;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Getter
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
 @AllArgsConstructor
+@NoArgsConstructor
 public abstract class Cartao {
 	
-	private String numero;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long numero;
 	private String nomeImpresso;
 	private Integer cvv;
 	private LocalDate dataValidade;
