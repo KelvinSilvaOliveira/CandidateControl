@@ -2,14 +2,16 @@ package br.com.foursalescontrol.core.infra.repository;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import br.com.foursalescontrol.core.domain.Candidato;
+import lombok.RequiredArgsConstructor;
 
+@Repository
+@RequiredArgsConstructor
 public class CandidatoJpaRepository implements CandidatoRepositoryInterface {
 	
-	@Autowired
-	private CandidatoRepository repository;
+	private final CandidatoRepository repository;
 
 	@Override
 	public Candidato buscar(Long id) {

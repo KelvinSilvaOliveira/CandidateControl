@@ -2,16 +2,17 @@ package br.com.foursalescontrol.core.app;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import br.com.foursalescontrol.core.domain.Candidato;
 import br.com.foursalescontrol.core.infra.repository.CandidatoRepositoryInterface;
+import lombok.RequiredArgsConstructor;
 
+@Service
+@RequiredArgsConstructor
 public class CandidatoCrudImpl implements CandidatoCrudService {
 	
-	private CandidatoRepositoryInterface repository;
-	
-	public CandidatoCrudImpl(CandidatoRepositoryInterface repository) {
-		this.repository = repository;
-	}
+	private final CandidatoRepositoryInterface repository;
 
 	@Override
 	public Candidato buscar(Long id) {

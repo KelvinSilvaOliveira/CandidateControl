@@ -1,4 +1,4 @@
-package br.com.foursalescontrol.web;
+package br.com.foursalescontrol;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

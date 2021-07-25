@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 public class CartaoDeCredito extends Cartao {
 	
-	public CartaoDeCredito(String numero, String nomeImpresso, Integer cvv, LocalDate dataValidade) {
-		super(numero, nomeImpresso, cvv, dataValidade);
+	public CartaoDeCredito(Long id, String numero, String nomeImpresso, Integer cvv, LocalDate dataValidade) {
+		super(id, numero, nomeImpresso, cvv, dataValidade);
 	}
 
 }

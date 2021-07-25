@@ -2,14 +2,13 @@ package br.com.foursalescontrol.core.infra.repository;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import br.com.foursalescontrol.core.domain.Cartao;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class CartaoJpaRepository implements CartaoRepositoryInterface {
 	
-	@Autowired
-	private CartaoRepository repository;
+	private final CartaoRepository repository;
 
 	@Override
 	public Cartao buscar(Long id) {
