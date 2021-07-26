@@ -2,15 +2,17 @@ package br.com.foursalescontrol.core.infra.repository;
 
 import java.util.List;
 
-import br.com.foursalescontrol.core.domain.Cartao;
+import org.springframework.stereotype.Repository;
+
+import br.com.foursalescontrol.core.domain.CartaoDeCredito;
 
 @Repository
 public interface CartaoRepositoryInterface {
 
-	void salvar(Cartao cartao);
-	Cartao buscar(Long id);
-	List<Cartao> buscarTodos();
-	void atualizar(Cartao cartao);
+	void salvar(CartaoDeCredito cartao);
+	CartaoDeCredito buscar(Long id);
+	List<CartaoDeCredito> buscarTodos();
+	void atualizar(CartaoDeCredito cartao);
 	void deletar(Long id);
 	
 }
