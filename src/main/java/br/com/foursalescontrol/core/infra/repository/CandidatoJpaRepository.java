@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import br.com.foursalescontrol.core.domain.Candidato;
 import lombok.RequiredArgsConstructor;
 
-@Repository
+@Repository("candidatoJPA")
 @RequiredArgsConstructor
 public class CandidatoJpaRepository implements CandidatoRepositoryInterface {
 	
@@ -30,7 +30,7 @@ public class CandidatoJpaRepository implements CandidatoRepositoryInterface {
 
 	@Override
 	public void atualizar(Candidato candidato) {
-		this.repository.save(candidato);
+		salvar(candidato);
 	}
 
 	@Override

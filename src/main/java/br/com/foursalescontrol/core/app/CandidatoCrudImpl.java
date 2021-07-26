@@ -6,13 +6,16 @@ import org.springframework.stereotype.Service;
 
 import br.com.foursalescontrol.core.domain.Candidato;
 import br.com.foursalescontrol.core.infra.repository.CandidatoRepositoryInterface;
-import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class CandidatoCrudImpl implements CandidatoCrudService {
 	
-	private final CandidatoRepositoryInterface repository;
+	
+	private CandidatoRepositoryInterface repository;
+	
+	public CandidatoCrudImpl(@Qualifier("candidatoJPA") CandidatoRepositoryInterface repository) {
+		this.repository = repository;
+	}
 
 	@Override
 	public Candidato buscar(Long id) {

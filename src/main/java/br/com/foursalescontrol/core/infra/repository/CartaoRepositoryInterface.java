@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.foursalescontrol.core.domain.Cartao;
 
+@Repository
 public interface CartaoRepositoryInterface {
 
 	void salvar(Cartao cartao);
