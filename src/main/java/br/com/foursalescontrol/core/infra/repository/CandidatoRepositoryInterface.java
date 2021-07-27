@@ -9,10 +9,10 @@ import br.com.foursalescontrol.core.domain.Candidato;
 @Repository
 public interface CandidatoRepositoryInterface {
 
-	void salvar(Candidato Candidato);
 	Candidato buscar(Long id);
 	List<Candidato> buscarTodos();
-	void atualizar(Candidato Candidato);
+	Candidato salvar(Candidato Candidato);
+	Candidato atualizar(Candidato Candidato);
 	void deletar(Long id);
 	
 }
