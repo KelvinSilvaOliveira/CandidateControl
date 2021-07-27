@@ -9,10 +9,10 @@ import br.com.foursalescontrol.core.domain.CartaoDeCredito;
 @Repository
 public interface CartaoRepositoryInterface {
 
-	void salvar(CartaoDeCredito cartao);
+	CartaoDeCredito salvar(CartaoDeCredito cartao);
 	CartaoDeCredito buscar(Long id);
 	List<CartaoDeCredito> buscarTodos();
-//	void atualizar(CartaoDeCredito cartao);
+//	CartaoDeCredito atualizar(CartaoDeCredito cartao);
 	void deletar(Long id);
 	
 }

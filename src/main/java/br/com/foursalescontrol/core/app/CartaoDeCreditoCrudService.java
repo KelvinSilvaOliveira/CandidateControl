@@ -12,8 +12,8 @@ public interface CartaoDeCreditoCrudService {
 
 	public CartaoDeCredito buscar(Long id) throws Exception;
 	public List<CartaoDeCredito> buscarTodos();
-	public void incluir(CartaoDeCredito CartaoDeCredito, Random randomico) throws Exception;
-//	public void atualizar(CartaoDeCredito CartaoDeCredito) throws Exception;
+	public CartaoDeCredito incluir(CartaoDeCredito CartaoDeCredito, Random randomico) throws Exception;
+//	public CartaoDeCredito atualizar(CartaoDeCredito CartaoDeCredito) throws Exception;
 	public void remover(Long id) throws Exception;
 	
 }

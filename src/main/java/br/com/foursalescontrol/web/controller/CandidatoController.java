@@ -42,33 +42,31 @@ public class CandidatoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> incluir(@RequestBody @Valid Candidato candidato) {
+	public ResponseEntity<Candidato> incluir(@RequestBody @Valid Candidato candidato) {
 		try{
-			this.service.incluir(candidato);
+			return new ResponseEntity<>(this.service.incluir(candidato), HttpStatus.CREATED);
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
-		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> atualizar(@RequestBody @Valid Candidato candidato) {
+	public ResponseEntity<Candidato> atualizar(@RequestBody @Valid Candidato candidato) {
 		try{
-			this.service.atualizar(candidato);
+			return new ResponseEntity<>(this.service.atualizar(candidato), HttpStatus.ACCEPTED);
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping(path = "/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
 		try{
 			this.service.remover(id);
+			return new ResponseEntity<>(HttpStatus.ACCEPTED);
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 
 }
