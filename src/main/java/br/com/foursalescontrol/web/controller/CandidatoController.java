@@ -38,7 +38,11 @@ public class CandidatoController {
 	
 	@GetMapping
 	public ResponseEntity<List<Candidato>> buscarTodos() {
-		return ResponseEntity.ok(this.service.buscarTodos());
+		try {
+			return ResponseEntity.ok(this.service.buscarTodos());
+		} catch (Exception e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
 	}
 	
 	@PostMapping
