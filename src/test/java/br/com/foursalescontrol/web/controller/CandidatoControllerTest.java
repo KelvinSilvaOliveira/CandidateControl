@@ -27,7 +27,7 @@ public class CandidatoControllerTest {
 	
 	@Test
 	public void buscar_Sucesso() throws Exception {
-		Mockito.when(this.service.buscar(Mockito.anyLong())).thenReturn(new Candidato());
+		Mockito.when(this.service.buscar(Mockito.anyLong())).thenReturn(createCandidato());
 		
 		ResponseEntity<Candidato> retorno = this.controller.buscar(1l);
 		
@@ -46,7 +46,7 @@ public class CandidatoControllerTest {
 	
 	@Test
 	public void buscarTodos_Sucesso() throws Exception {
-		List<Candidato> listaCandidatos = List.of(new Candidato());
+		List<Candidato> listaCandidatos = List.of(createCandidato());
 		Mockito.when(this.service.buscarTodos()).thenReturn(listaCandidatos);
 		
 		ResponseEntity<List<Candidato>> retorno = this.controller.buscarTodos();
@@ -66,9 +66,9 @@ public class CandidatoControllerTest {
 	
 	@Test
 	public void incluir_Sucesso() throws Exception {
-		Mockito.when(this.service.incluir(Mockito.any(Candidato.class))).thenReturn(new Candidato());
+		Mockito.when(this.service.incluir(Mockito.any(Candidato.class))).thenReturn(createCandidato());
 		
-		ResponseEntity<Candidato> retorno = this.controller.incluir(new Candidato());
+		ResponseEntity<Candidato> retorno = this.controller.incluir(createCandidato());
 		
 		Assertions.assertThat(retorno).isNotNull();
 		Assertions.assertThat(retorno.getStatusCodeValue()).isEqualTo(HttpStatus.CREATED.value());
@@ -79,15 +79,15 @@ public class CandidatoControllerTest {
 		Mockito.when(this.service.incluir(Mockito.any(Candidato.class))).thenThrow(new RuntimeException());
 		
 		Assertions.assertThatExceptionOfType(ResponseStatusException.class)
-					.isThrownBy(() -> this.controller.incluir(new Candidato()))
+					.isThrownBy(() -> this.controller.incluir(createCandidato()))
 					.withMessageContaining(HttpStatus.BAD_REQUEST.toString());
 	}
 	
 	@Test
 	public void atualizar_Sucesso() throws Exception {
-		Mockito.when(this.service.atualizar(Mockito.any(Candidato.class))).thenReturn(new Candidato());
+		Mockito.when(this.service.atualizar(Mockito.any(Candidato.class))).thenReturn(createCandidato());
 		
-		ResponseEntity<Candidato> retorno = this.controller.atualizar(new Candidato());
+		ResponseEntity<Candidato> retorno = this.controller.atualizar(createCandidato());
 		
 		Assertions.assertThat(retorno).isNotNull();
 		Assertions.assertThat(retorno.getStatusCodeValue()).isEqualTo(HttpStatus.ACCEPTED.value());
@@ -98,7 +98,7 @@ public class CandidatoControllerTest {
 		Mockito.when(this.service.atualizar(Mockito.any(Candidato.class))).thenThrow(new RuntimeException());
 		
 		Assertions.assertThatExceptionOfType(ResponseStatusException.class)
-					.isThrownBy(() -> this.controller.atualizar(new Candidato()))
+					.isThrownBy(() -> this.controller.atualizar(createCandidato()))
 					.withMessageContaining(HttpStatus.BAD_REQUEST.toString());
 	}
 	
@@ -119,6 +119,10 @@ public class CandidatoControllerTest {
 		Assertions.assertThatExceptionOfType(ResponseStatusException.class)
 					.isThrownBy(() -> this.controller.remover(1l))
 					.withMessageContaining(HttpStatus.BAD_REQUEST.toString());
+	}
+	
+	private Candidato createCandidato() {
+		return new Candidato(1l, "Teste", "00000000000", null);
 	}
 
 }
