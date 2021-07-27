@@ -12,7 +12,7 @@ public interface CartaoRepositoryInterface {
 	void salvar(CartaoDeCredito cartao);
 	CartaoDeCredito buscar(Long id);
 	List<CartaoDeCredito> buscarTodos();
-	void atualizar(CartaoDeCredito cartao);
+//	void atualizar(CartaoDeCredito cartao);
 	void deletar(Long id);
 	
 }

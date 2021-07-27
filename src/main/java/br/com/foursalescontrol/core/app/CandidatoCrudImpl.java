@@ -1,7 +1,9 @@
 package br.com.foursalescontrol.core.app;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import br.com.foursalescontrol.core.domain.Candidato;
@@ -18,8 +20,10 @@ public class CandidatoCrudImpl implements CandidatoCrudService {
 	}
 
 	@Override
-	public Candidato buscar(Long id) {
-		return (Candidato) this.repository.buscar(id);
+	public Candidato buscar(Long id) throws Exception {
+		if(id == 0) 
+			throw new Exception("Candidato não pode ser 0");
+		return this.repository.buscar(id);
 	}
 	
 	@Override
@@ -28,17 +32,22 @@ public class CandidatoCrudImpl implements CandidatoCrudService {
 	}
 
 	@Override
-	public void incluir(Candidato candidato) {
-		this.repository.salvar(candidato);
+	public Candidato incluir(Candidato candidato) {
+		candidato.setId(null);
+		return this.repository.salvar(candidato);
 	}
 
 	@Override
-	public void atualizar(Candidato candidato) {
-		this.repository.atualizar(candidato);
+	public Candidato atualizar(Candidato candidato) throws Exception {
+		if(Optional.of(this.repository.buscar(candidato.getId())).isEmpty()) 
+			throw new Exception("Candidato não encontrado");
+		return this.repository.atualizar(candidato);
 	}
 
 	@Override
-	public void deletar(Long id) {
+	public void remover(Long id) throws Exception {
+		if(id == 0) 
+			throw new Exception("Candidato não pode ser 0");
 		this.repository.deletar(id);
 	}
 
