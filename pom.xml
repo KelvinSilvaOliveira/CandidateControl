@@ -4,8 +4,8 @@
 	
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>br.com.foursalescontrol</groupId>
-	<artifactId>foursales_control</artifactId>
+	<groupId>br.com.candidatecontrol</groupId>
+	<artifactId>candidate_control</artifactId>
 	<version>0.15.0-SNAPSHOT</version>
 	<name>FoursalesControl</name>
 	<description>API para controle de candidatos e seus cartões de crédito</description>
